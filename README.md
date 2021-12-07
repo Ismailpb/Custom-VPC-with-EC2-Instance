@@ -523,7 +523,7 @@ output "frontend-private-ip" {
 }
 
 
-output "bastion-private-ip" {
+output "bastion-public-ip" {
     
   value = aws_instance.bastion.public_ip
     
@@ -531,7 +531,7 @@ output "bastion-private-ip" {
 
 
 
-output "backend-public-ip" {
+output "backend-private-ip" {
     
   value = aws_instance.backend.private_ip
     
