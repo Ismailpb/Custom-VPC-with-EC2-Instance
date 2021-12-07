@@ -45,6 +45,8 @@ Now the next step is to create VPC
 ```sh 
 terraform init
 ```
+Once the provider and variables files ready, we can proceed with the creation of a file named "00-01-datasource-vpc.tf" which contains the details of availablity zone.
+
 ### Fetching AZ Names
 ```
 data "aws_availability_zones" "az" {
@@ -53,6 +55,8 @@ data "aws_availability_zones" "az" {
 
 }
 ```
+Now  can move to create VPC in 01-01-infra-vpc.tf
+
 ### VPC Creation
 ```
 resource "aws_vpc" "vpc" {
@@ -279,27 +283,12 @@ resource "aws_route_table_association" "private3" {
 }
 ```
 
-Now the creation of VPC is completed.
+The infrastructure for VPC craetion is completed.
 
+Now  we are going to create the infrastructure for Ec2 instance. We can use the below codes in the file "02-01-infra-instance.tf"
 
-```sh
- terraform validate
-```
-- After successful validation, plan the build architecture and confirm the changes
-
-```sh
- terraform plan
-```
-- Apply the changes to the AWS architecture
-
-Then need to apply the below command
-
-```sh
- terraform apply
-```
 ### Creating Public Key
 
-Here we are going to create a public key to access the instance. We can use the below codes in the files "02-01-infra-instance.tf"
 ```
 resource "aws_key_pair"  "key" {
  
@@ -534,7 +523,7 @@ output "frontend-private-ip" {
 }
 
 
-output "bastion-public-ip" {
+output "bastion-private-ip" {
     
   value = aws_instance.bastion.public_ip
     
@@ -564,6 +553,9 @@ To Obtain the output use the command as
 ```
 terraform output
 ```
+# Result
+
+Here we have built an architecture for VPC named "Supportteam" with Ec2 Instance using terraform as IaC.
 
 
 ⚙️ Connect with Me
