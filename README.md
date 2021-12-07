@@ -36,7 +36,7 @@ The next is configuration of AWS provider. So, we are creating a file named prov
 
 ```sh 
 provider "aws" {
-  region gigin george    = region
+  region     = region
   access_key = *************
   secret_key = ************
 }
@@ -49,7 +49,7 @@ terraform init
 ```
 data "aws_availability_zones" "az" {
     
-  state =gigin george "available"
+  state = "available"
 
 }
 ```
@@ -566,3 +566,8 @@ terraform output
 ```
 
 
+⚙️ Connect with Me
+ 
+  <a href="https://www.linkedin.com/in/ismail-pb-55373387/">
+     <p> <img align="left" alt="Abhishek's LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" /> </p>
+   </a>    
